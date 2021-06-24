@@ -4,9 +4,13 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "node src/index.ts"
+    "start": "node src/index.js",
+    "migrate": "DATABASE_URL=postgres://users-training@localhost/users-training node-pg-migrate -f config/default.json -m src/migrations"
   },
   "dependencies": {
-    "express": "^4.17.1"
-  }
+    "express": "^4.17.1",
+    "node-pg-migrate": "^5.9.0",
+    "pg": "^8.6.0"
+  },
+  "devDependencies": {}
 }
