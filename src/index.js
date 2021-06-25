@@ -38,7 +38,7 @@ app.post('/user', async (req, res) => {
   `)
 
   const user = await pool.query(`
-    SELECT * FROM users WHERE "userName" = "${userName}"
+    SELECT * FROM users WHERE "userName" = '${userName}'
   `)
 
   res.send(user.rows[0])
