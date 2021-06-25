@@ -44,6 +44,13 @@ app.post('/user', async (req, res) => {
   res.send(user.rows[0])
 })
 
+app.delete('/user/:userId', async (req, res) => {
+  const { userId } = req.params;
+  await pool.query(`DELETE FROM users WHERE id = ${userId}`)
+
+  res.send({ status: 'ok' });
+})
+
 app.listen(7000, () =>
   console.log('Example app listening on port 7000!'),
 );
