@@ -1,8 +1,16 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const { pool } = require('./pool');
+const cors = require('cors')
 
 const app = express();
+const corsOptions = {
+  origin:'http://localhost:3000',
+  credentials:true,
+  optionSuccessStatus:200
+}
+app.use(cors(corsOptions));
+
 app.use(bodyParser.json())
 
 app.get('/users', async (req, res) => {
