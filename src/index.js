@@ -38,15 +38,15 @@ app.patch('/user/:userId', async (req, res) => {
 })
 
 app.post('/user', async (req, res) => {
-  const {userName, eyeColor, height} = req.body;
+  const {firstName, lastName, jobTitle, age} = req.body;
 
   await pool.query(`
-      INSERT INTO users ("userName", "eyeColor", "height")
-      VALUES ('${userName}', '${eyeColor}', ${height})
+      INSERT INTO users ("firstName", "lastName", "jobTitle", "age")
+      VALUES ('${firstName}', '${lastName}', '${jobTitle}', '${age}')
   `)
 
   const user = await pool.query(`
-    SELECT * FROM users WHERE "userName" = '${userName}'
+    SELECT * FROM users WHERE "firstName" = '${firstName}' AND "lastName" = '${lastName}' LIMIT 1
   `)
 
   res.send(user.rows[0])
