@@ -20,13 +20,14 @@ app.get('/users', async (req, res) => {
 
 app.patch('/user/:userId', async (req, res) => {
   const {userId} = req.params
-  const {userName, eyeColor, height} = req.body;
+  const {firstName, lastName, jobTitle, age} = req.body;
 
   await pool.query(`
       UPDATE users
-      SET "userName" = '${userName}',
-          "eyeColor" = '${eyeColor}',
-          "height" = ${height}
+      SET "firstName" = '${firstName}',
+          "lastName" = '${lastName}',
+          "jobTitle" = '${jobTitle}',
+          "age" = ${age}
       WHERE id = ${userId}
   `)
 
