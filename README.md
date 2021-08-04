@@ -3,10 +3,12 @@ This toy api has four endpoints for performing CRUD operations on a user resourc
 A user has the following shape:
 ```js
 {
-  // The username of the user
-  userName: string;
-  // The color of the user's eyes
-  eyeColor: string;
+  // The first name of the user
+  firstName: string;
+  // The last name of the user
+  lastName: string;
+  // The job the user has
+  jobTitle: string;
   // The user's height in cm
   height: number;
 }
@@ -24,9 +26,10 @@ http requests to it by using `GET http://localhost:7000/users`, etc.
   - expects the following to be in the request body:
     ```js
     {
-      userName: string;
-      eyeColor: string;
-      height: number;
+      firstName: string;
+      lastName: string;
+      jobTitle: string;
+      age: number;
     }
     ```
 - `PATCH /user/:userId`
@@ -35,9 +38,10 @@ http requests to it by using `GET http://localhost:7000/users`, etc.
   - expects the following to be in the request body:
     ```js
     {
-      userName: string;
-      eyeColor: string;
-      height: number;
+      firstName: string;
+      lastName: string;
+      jobTitle: string;
+      age: number;
     }
     ```
 - `DELETE /user/:userId`
